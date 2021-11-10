@@ -1,8 +1,8 @@
-module.exports.profile=function(req,res)
+module.exports.signin=function(req,res)
 {
-    return res.send('<h1>Profile </h1>')
+    return res.render('sign_in');
 }
-module.exports.posts=function(req,res)
+module.exports.signup=function(req,res)
 {
-    return res.send('<h1>User Posts</h1>')
+    return res.render('sign_up');
 }
