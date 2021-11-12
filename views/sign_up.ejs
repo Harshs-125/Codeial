@@ -1,11 +1,11 @@
 <%-include('header') %>
  <div>
-     <form method="post" action="">
+     <form action="/users/create" method="POST">
        <input type="email" name="email" placeholder="Enter Email"/>
-       <input type="name" name="name" placeholder="Enter name" />
+       <input type="text" name="name" placeholder="Enter name" />
        <input type="password" name="password" placeholder="Enter Password" />
-       <input type="password" name="confirm-password" placeholder="Enter Confirm Password" />
-       <button>Sign in</button>
+       <input type="password" name="confirm_password" placeholder="Enter Confirm Password" />
+       <input type="submit" value="Sign up"/>
      </form>
  </div>
 <%-include('footer') %>
