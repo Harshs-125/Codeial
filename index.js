@@ -7,8 +7,9 @@ const port=8000;
 const db=require('./config/mongoose');
 
 app.use(express.urlencoded());
-app.use('/',require('./routes'));
 app.use(cookieParser());
+app.use('/',require('./routes'));
+
 
 //setup our view-engine
 app.set('view engine','ejs');
