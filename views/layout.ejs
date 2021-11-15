@@ -4,6 +4,7 @@
             Codeial 
         </title>
         <link rel="stylesheet" href="/styles/style.css">
+        <link rel="stylesheet" href="/styles/layout.css">
         <%- style %>
         
     </head>
@@ -11,7 +12,9 @@
     <body>
         <%- include('header'); %>
 
-        <%- body %>
+        <div id="main">
+            <%- body %>
+        </div>
 
 
         <%- include('footer'); %>
