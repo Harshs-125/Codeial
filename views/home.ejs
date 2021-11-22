@@ -7,6 +7,13 @@
         </form>
     </div>
     <div>
-        <% 
-        %>
+        <% for(post of posts){%>
+            <div>
+                <ul>
+                    <li><%=post.content %></li>
+                    <p><%=post.user.name %></p>
+                    <p><%=post.createdAt %></p>
+                </ul>
+            </div>
+        <%}%> 
     </div>
