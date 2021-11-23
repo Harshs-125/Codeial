@@ -1,11 +1,13 @@
 
     <h1>Codeial <%= title %></h1>
-    <div class="new-post-form">
-        <form action="/posts/createpost" method="POST">
-          <textarea name="content" rows="3" cols="30"></textarea>
-          <input type="submit" value="Post"/>
-        </form>
-    </div>
+    <%if(locals.user){%>
+        <div class="new-post-form">
+            <form action="/posts/createpost" method="POST">
+              <textarea name="content" rows="3" cols="30"></textarea>
+              <input type="submit" value="Post"/>
+            </form>
+        </div>
+    <%}%>
     <div>
         <% for(post of posts){%>
             <div>
