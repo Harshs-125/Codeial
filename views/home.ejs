@@ -1,7 +1,11 @@
-<div id="home">
-  <h1>Codeial <%= title %></h1>
-  <%- include('post') -%>
-  <section id="users-profile">
+
+<div id="home-container">
+  
+  <section id="feed-post" >
+    <h4>Posts</h4>
+    <%- include('post') -%>
+  </section>
+  <section id="user-friends">
     <h4>Friends</h4>
     <ul>
       <%for(u of all_users){%>
