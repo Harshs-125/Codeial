@@ -22,3 +22,21 @@ module.exports.createComment=function(req,res){
         }
     })
 }
+
+module.exports.deleteComment=function(req,res){
+    Comment.findById(req.params.id,function(err,comment){
+        if(comment)
+        {
+            let postId=comment.post;
+            comment.remove();
+            comment.save();
+            Post.findByIdAndUpdate(postId,{$pull:{comments:req.params.id}},function(err,post){
+                return res.redirect('back');
+            })
+        }
+        else
+        {
+            return res.redirect('back');
+        }
+    })
+}
