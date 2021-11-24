@@ -1,50 +1,12 @@
 <div id="home">
   <h1>Codeial <%= title %></h1>
-  <%if(locals.user){%>
-  <div class="new-post-form">
-    <form action="/posts/createpost" method="POST">
-      <textarea name="content" rows="3" cols="30"></textarea>
-      <input type="submit" value="Post" />
-    </form>
-  </div>
-  <%}%>
-  <div id="post-container">
-    <% for(post of posts){%>
-    <div id="post-list-container">
-      <%if(locals.user && locals.user.id==post.user.id){%>
-      <a href="/posts/deletepost/<%=post.id%>">Delete</a>
+  <%- include('post') -%>
+  <section id="users-profile">
+    <h4>Friends</h4>
+    <ul>
+      <%for(u of all_users){%>
+      <li><a href="/users/profile/<%=u.id%>"><%=u.name%></a></li>
       <%}%>
-      <ul>
-        <li><%=post.content %></li>
-        <p><%=post.user.name %></p>
-        <p><%=post.createdAt %></p>
-        <div id="post-comment-container">
-          <% if(locals.user){%>
-          <form action="/comment/createcomment" method="POST">
-            <input
-              type="text"
-              name="content"
-              placeholder="Type Comment here..."
-            />
-            <input type="hidden" name="post" value="<%=post._id%>" />
-            <input type="submit" value="Add Comment" />
-          </form>
-          <%}%>
-          <div id="post-comment-list">
-            <ul>
-              <% for(comment of post.comments){%>
-              <small>
-                <%if(locals.user && locals.user.id==comment.user.id){%>
-                <a href="/comment/deletecomment/<%=comment.id%>">Delete</a>
-                <%}%>
-              </small>
-              <li><%=comment.content%> by <%=comment.user.name%></li>
-              <%}%>
-            </ul>
-          </div>
-        </div>
-      </ul>
-    </div>
-    <%}%>
-  </div>
+    </ul>
+  </section>
 </div>
