@@ -1,6 +1,6 @@
 <%if(locals.user){%>
-<div class="new-post-form">
-  <form action="/posts/createpost" method="POST">
+<div >
+  <form action="/posts/createpost" id="new-post-form"  method="POST">
     <textarea name="content" rows="3" cols="30"></textarea>
     <input type="submit" value="Post" />
   </form>
@@ -21,3 +21,4 @@
   </div>
   <%}%>
 </div>
+<script src="/js/home_post.js"></script>
