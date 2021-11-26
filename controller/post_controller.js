@@ -3,35 +3,36 @@ const Comment=require('../models/comments');
 module.exports.posts=function(req,res){
     return res.render('posts');
 }
-module.exports.createPost=function(req,res)
+module.exports.createPost=async function(req,res)
 {
-    Post.create({
-        content:req.body.content,
-        user:req.user._id
-    },function(err)
+    try{
+        await Post.create({
+            content:req.body.content,
+            user:req.user._id
+        });
+        return res.redirect('/');
+    }catch(err)
     {
-       if(err)
-       {
-           console.log("Error while creating post",err);
-           return;
-       }
-       return res.redirect('/');
-    })
+        console.log('Error',err);
+    }
 }
 
-module.exports.deletepost=function(req,res)
+module.exports.deletepost= async function(req,res)
 {
-    Post.findById(req.params.id,function(err,post){
+    try{
+        let post=await Post.findById(req.params.id);
         //.id is given by mongoose converting object id into string
         if(post.user == req.user.id){
            post.remove();
-           Comment.deleteMany({post:req.params.id},function(err,comments){
+           await Comment.deleteMany({post:req.params.id})
                return res.redirect('/');
-           })
         }
         else
         {
             return res.redirect('/');
         }
-    })
+    }catch(err)
+    {
+        console.log('Error',err);
+    }
 }
