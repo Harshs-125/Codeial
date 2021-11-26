@@ -11,13 +11,14 @@ module.exports.createComment = async function (req, res) {
       });
       post.comments.push(comments);
       post.save();
+      req.flash('success',"Successfully commented");
       res.redirect("/");
     } else {
-      console.log("no post with this id");
+      req.flash('error','no post with this id');
     }
   }catch(err)
   {
-      console.log("Error",err);
+      req.flash('error',err);
   }
 };
 
@@ -30,6 +31,7 @@ module.exports.deleteComment = async function (req, res) {
       let post=await Post.findByIdAndUpdate(
         postId,
         {$pull: {comments: req.params.id }});
+        req.flash('success',"successfully deleted comment");
         return res.redirect('back');
     } else {
       return res.redirect("back");

@@ -10,10 +10,11 @@ module.exports.createPost=async function(req,res)
             content:req.body.content,
             user:req.user._id
         });
+        req.flash('success',"successfully created post");
         return res.redirect('/');
     }catch(err)
     {
-        console.log('Error',err);
+        req.flash('error',err);
     }
 }
 
@@ -25,6 +26,7 @@ module.exports.deletepost= async function(req,res)
         if(post.user == req.user.id){
            post.remove();
            await Comment.deleteMany({post:req.params.id})
+           req.flash('success',"successfully deleted post");
                return res.redirect('/');
         }
         else
@@ -33,6 +35,6 @@ module.exports.deletepost= async function(req,res)
         }
     }catch(err)
     {
-        console.log('Error',err);
+        req.flash('error',err);
     }
 }
