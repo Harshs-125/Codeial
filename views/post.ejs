@@ -8,9 +8,9 @@
 <%}%>
 <div id="post-container">
   <% for(post of posts){%>
-  <div id="post-list-container">
+  <div id="post-list-<%=post._id%>">
     <%if(locals.user && locals.user.id==post.user.id){%>
-    <a href="/posts/deletepost/<%=post.id%>">Delete</a>
+    <a class="delete-post-button" href="/posts/deletepost/<%=post.id%>">Delete</a>
     <%}%>
     <ul>
       <li><%=post.content %></li>
