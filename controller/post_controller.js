@@ -11,7 +11,13 @@ module.exports.createPost=async function(req,res)
             user:req.user._id
         });
         if(req.xhr)
-        {   
+        {   console.log("post");
+            try{
+                post = await post.populate('user', 'name');
+            }catch(err)
+            {
+                console.log(err);
+            }
             return res.status(200).json({
                 data:{
                     post:post
