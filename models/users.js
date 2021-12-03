@@ -26,10 +26,13 @@ const storage = multer.diskStorage({
       cb(null,path.join(__dirname,'..', AVATAR_PATH));
     },
     filename: function (req, file, cb) {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
       cb(null, file.fieldname + '-' + uniqueSuffix)
     }
-  })
+  });
+  //static methods
+  userSchema.statics.uploadedAvatar=multer({storage: storage}).single('avatar');
+  userSchema.statics.avatarPath=Avatar_PATH;
   
 
 const User=mongoose.model('User',userSchema);
