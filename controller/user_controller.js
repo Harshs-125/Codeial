@@ -1,4 +1,6 @@
 const User = require("../models/users");
+const fs=require('fs');
+const path=require('path');
 module.exports.signin = function (req, res) {
   if(req.isAuthenticated())
   {
@@ -84,6 +86,10 @@ module.exports.update=async function(req,res){
           user.email=req.body.email;
           if(req.file)
           {
+            if(user.avatar)
+            {
+              fs.unlinkSync(path.join(__dirname,"..",user.avatar));
+            }
             //this is to save the path of uploading avatar in the avatar field in user
             user.avatar=User.avatarPath+'/'+req.file.filename;
           }
