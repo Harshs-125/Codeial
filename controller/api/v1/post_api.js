@@ -18,7 +18,7 @@ module.exports.post=async function(req,res){
 module.exports.deletePost=async function(req,res){
     try{let post=await Post.findById(req.params.id);
         //.id is given by mongoose converting object id into string
-        //if(post.user == req.user.id){
+        if(post.user == req.user.id){
            post.remove();
            await Comment.deleteMany({post:req.params.id})
         //    if(req.xhr)
@@ -33,8 +33,13 @@ module.exports.deletePost=async function(req,res){
         return res.json(200,{
             message:"Deleted Post"
         })
+    }else{
+        return res.json(401,{
+            message:"You are not allowed to delete this post "
+            })
+    }
     }catch(err)
-    {
+    {   console.log(err);
         return res.json(500,{
             message:"internal servererror"
         })

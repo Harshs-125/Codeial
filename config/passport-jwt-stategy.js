@@ -5,7 +5,7 @@ const User=require('../models/users');
 
 let opts=
 {
-    jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken,
+    jwtFromRequest:ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey:"codeial"
 }
 
