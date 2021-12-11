@@ -12,7 +12,7 @@ module.exports.createComment = async function (req, res) {
       });
       post.comments.push(comments);
       post.save();
-      comments=await comments.populate('user','name');
+      comments=await comments.populate('user','name email');
       commentMailer.newComment(comments);
       if(req.xhr){
         return res.status(200).json({
