@@ -40,9 +40,8 @@ module.exports.deletepost= async function(req,res)
         //.id is given by mongoose converting object id into string
         if(post.user == req.user.id){
             // CHANGE :: delete the associated likes for the post and all its comments' likes too
-            await Like.deleteMany({likeable: post, onModel: 'Post'});
-            await Like.deleteMany({_id: {$in: post.comments}});
-
+            // await Like.deleteMany({likeable: post, onModel: 'Post'});
+            // await Like.deleteMany({_id: {$in: post.comments}});
            post.remove();
            await Comment.deleteMany({post:req.params.id})
            if(req.xhr)

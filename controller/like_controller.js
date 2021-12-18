@@ -6,41 +6,47 @@ const Like=require('../models/like');
 module.exports.toggleLike=async function(req,res){
     console.log("con");
  try{
-     console.log("controller");
-    //like/toggle/?id=abcs&type=Post
-    let likeable;
-    let deleted=false;
-    if(req.query.type=='Post')
-    {   console.log("if");
-        likeable=await Post.findById(req.query.id).populate('likes');
-    }else
-    {  
-        likeable=await Comment.findById(req.query.id).populate('likes');
-    }
+      console.log("controller");
+    // //like/toggle/?id=abcs&type=Post
+     let likeable;
+     let deleted=false;
+     if(req.query.type=='Post')
+     {   console.log("if");
+         likeable=await Post.findById(req.query.id).populate('likes');
+         console.log(likeable);
+     }else
+     {   console.log("else");
+         likeable=await Comment.findById(req.query.id).populate('likes');
+     }
     
-    //check if a like already exists
-    let existingLike=await Like.findOne({
-        likeable:req.query.id,
-        onModel:req.query.type,
-        user:req.user._id
-    })
-    //if like already exists then delete it
-    if(existingLike)
-    {
+    // //check if a like already exists
+     let existingLike=await Like.findOne({
+         likeable:req.query.id,
+         onModel:req.query.type,
+         user:req.user._id
+    }) 
+    // //if like already exists then delete it
+     if(existingLike)
+     {
         likeable.likes.pull(existingLike._id);
         likeable.save();
         existingLike.remove();
         deleted=true;
-    }else
-    {
-        //else make a new like
-        let newLike=await Like.create({
-            user:req.user._id,
-            likeable:req.query.id,
-            onModel:req.query.type
+     console.log("likeable if");
+     }else
+     {
+    //     //else make a new like
+        console.log(req.query.id);
+        console.log(req.query.type);
+        console.log(req.user._id);
+         let newLike=await Like.create({
+         user:req.user._id,
+         likeable:req.query.id,
+         onModel:req.query.type
         });
         likeable.likes.push(newLike._id);
         likeable.save();
+     console.log("likeable else");
     }
 
     return res.status(200).json({

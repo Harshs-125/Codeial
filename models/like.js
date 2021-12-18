@@ -9,13 +9,13 @@ const likeSchema = new mongoose.Schema({
   likeable: {
     type: String,
     required: true,
-    refPath: 'onModel',
+    refPath: 'onModel'
   },
   onModel: {
     type: String,
     required: true,
-    enum: [Post,Comment]
-  },
+    enum: ['Post','Comment']
+  }
 },{
   timestamps:true
 });

@@ -54,7 +54,7 @@
                       ${post.createdAt}
                       </small>
                       <small>
-                      <a href="/like/toggle/?id=${post._id}&type=Post" >${post.likes.length}Like</a>
+                      <a class="toggle-like-button" href="/like/toggle/?id=${post._id}&type=Post" >${post.likes.length}Like</a>
                       </small
                   </p>
                   <div class="post-comments">
