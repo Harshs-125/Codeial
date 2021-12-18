@@ -6,13 +6,9 @@ module.exports.home= async function(req,res){
   //   {
   //     console.log("error in finding post",err);
   //   }
-  //   return res.render('home',{
-  //     title:"Home",
-  //     posts:posts
-  //   })
-  // })
-  
+  //   
   //Populating user of each post
+  //CHANGE:populate likes in each post
   try{
     let posts= await Post.find({})
   .sort('-createdAt')
@@ -21,8 +17,11 @@ module.exports.home= async function(req,res){
     path:'comments',
     populate:{
       path:'user'
+    },
+    populate:{
+      path:'likes'
     }
-  })
+  }).populate('comments').populate('likes');
   let users=await  User.find({});
   return res.render('home',{
     title:"Home",
