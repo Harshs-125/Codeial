@@ -19,7 +19,7 @@
           new PostComments(data.data.post._id);
 
           // CHANGE :: enable the functionality of the toggle like button on the new post
-          new ToggleLike($(' #like-button ', newPost));
+          new ToggleLike($(' .toggle-like-button ', newPost));
 
           new Noty({
             theme: "relax",
@@ -54,7 +54,7 @@
                       ${post.createdAt}
                       </small>
                       <small>
-                      <a class="toggle-like-button" href="/like/toggle/?id=${post._id}&type=Post" >${post.likes.length}Like</a>
+                      <a class="toggle-like-button" href="/like/toggle/?id=${post._id}&type=Post" data-likes="${post.likes.length}">${post.likes.length} Like</a>
                       </small
                   </p>
                   <div class="post-comments">

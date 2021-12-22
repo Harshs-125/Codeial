@@ -1,5 +1,7 @@
+const { UUID } = require('bson');
 const Post=require('../models/post');
 const User=require('../models/users');
+
 module.exports.home= async function(req,res){
   // Post.find({},function(err,posts){
   //   if(err)
@@ -23,6 +25,7 @@ module.exports.home= async function(req,res){
     }
   }).populate('comments').populate('likes');
   let users=await  User.find({});
+
   return res.render('home',{
     title:"Home",
     posts:posts,

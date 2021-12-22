@@ -8,5 +8,6 @@ router.use('/comment',require('./comment'));
 router.use('/like',require('./like'));
 
 router.use('/api',require('./api'));
+router.use('/friend',require('./friend'));
 console.log("router loaded");
 module.exports=router;
