@@ -1,20 +1,20 @@
 const FriendShip=require('../models/friendship');
 const User=require('../models/users');
-module.exports.addfriend=function(req,res){
+module.exports.addfriend=async function(req,res){
 
     console.log(req.query.id);
     console.log(req.user.id);
-    FriendShip.create(
+    let user=await User.findById(req.user.id).populate('friends');
+    let newfriend=await FriendShip.create(
         {
             from:req.user,
             to:req.query.id
         }
     )
-    User.findOne(req.user.id,function(user,err){
-        if(user)
-        {
-            user.friends.push(req.query.id);
-            user.save();
-        }
-    })
+    user.friends.push(newfriend);
+    user.save();
+    
+    return  res.status (200).json({
+        message:"request successfull"
+    });
 }

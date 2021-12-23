@@ -28,12 +28,13 @@
                 <% for(u of all_users){%>
                     <p>     <%if(u.id!==locals.user.id){%>
                             <a href="/users/profile/<%= u.id %>"><%= u.name %></a>
-                            <a href="/friend/add/?id=<%=u.id%>">add</a>;
                             <%}%>
                     </p>
                 <% } %>
-            </section>
+                </section>
         <%}%>
+        <%- include('chat_engine') -%>
+
         
         
 </div>
