@@ -7,7 +7,6 @@ class ToggleLike{
 
 
     toggleLike(){
-        console.log("inside toggle");
         $(this.toggler).click(function(e){
             e.preventDefault();
 

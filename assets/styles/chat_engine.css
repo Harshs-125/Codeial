@@ -1,4 +1,4 @@
-.chat-box {
+#chat-box {
   width: 30%;
   height: 40%;
   position: fixed;
@@ -8,7 +8,7 @@
   padding: 5px;
 }
 
-.chat-box .chat-list {
+#chat-box .chat-list {
   width: 90%;
   height: 80%;
   margin-left: auto;
@@ -16,44 +16,44 @@
   margin-bottom: 5px;
 }
 
-.chat-box .chat-list #chat-list {
+#chat-box .chat-list #chat-list {
   list-style: none;
   padding: 10px;
   overflow: auto;
 }
 
-.chat-box .chat-list .others-message {
+#chat-box .chat-list .others-message {
   text-align: left;
   padding: 5px;
 }
 
-.chat-box .chat-list .others-message span {
+#chat-box .chat-list .others-message span {
   display: inline-block;
   padding: 15px;
   background-color: bisque;
 }
 
-.chat-box .chat-list .my-message {
+#chat-box .chat-list .my-message {
   text-align: right;
   padding: 5px;
 }
 
-.chat-box .chat-list .my-message span {
+#chat-box .chat-list .my-message span {
   display: inline-block;
   padding: 15px;
   background-color: aqua;
 }
 
-.chat-box .message-box {
+#chat-box .message-box {
   width: 90%;
   margin: auto;
 }
 
-.chat-box .message-box .message-form #text-area {
+#chat-box .message-box .message-form #text-area {
   width: 80%;
 }
 
-.chat-box .message-box .message-form #send-btn {
+#chat-box .message-box .message-form #send-btn {
   width: 17%;
   height: 8%;
   margin-left: 5px;
