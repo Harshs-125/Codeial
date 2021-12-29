@@ -12,6 +12,10 @@ module.exports.chatSockets=function(socketServer)
         console.log("joining request received", data.chatroom);
         socket.join(data.chatroom);
         io.in(data.chatroom).emit('userjoined',data.useremail);
+    });
+    //detect send_message and broadcast to every one in this room
+    socket.on('send_message',function(data){
+        io.in(data.chatroom).emit('receive_message',data);
     })
    });
    

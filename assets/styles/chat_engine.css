@@ -1,6 +1,6 @@
 #chat-box {
   width: 30%;
-  height: 40%;
+  height: auto;
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -10,13 +10,13 @@
 
 #chat-box .chat-list {
   width: 90%;
-  height: 80%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 5px;
 }
 
-#chat-box .chat-list #chat-list {
+#chat-box .chat-list #chat-message-list {
   list-style: none;
   padding: 10px;
   overflow: auto;
@@ -33,12 +33,12 @@
   background-color: bisque;
 }
 
-#chat-box .chat-list .my-message {
+#chat-box .chat-list .self-message {
   text-align: right;
   padding: 5px;
 }
 
-#chat-box .chat-list .my-message span {
+#chat-box .chat-list .self-message span {
   display: inline-block;
   padding: 15px;
   background-color: aqua;
