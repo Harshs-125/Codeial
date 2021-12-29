@@ -16,9 +16,9 @@
              console.log("connection established using socket ...!");
              self.socket.emit('join_room',{
                  useremail:self.userEmail,
-                 chatroom:'codeial-room'
+                 chatroom:'codeial'
              });
-             self.socket.on('user_joined',function(data){
+             self.socket.on('userjoined',function(data){
                  console.log('a user is joined!',data);
              })
          });

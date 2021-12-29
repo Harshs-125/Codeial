@@ -9,8 +9,9 @@ module.exports.chatSockets=function(socketServer)
         console.log('socket disconnected');
     });
     socket.on('join_room',function(data){
-        console.log("joining request received", data);
-        io.emit('user_joined',data);
+        console.log("joining request received", data.chatroom);
+        socket.join(data.chatroom);
+        io.in(data.chatroom).emit('userjoined',data.useremail);
     })
    });
    
