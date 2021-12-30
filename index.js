@@ -1,4 +1,5 @@
 const express=require('express');
+const env=require('./config/environment');
 const cookieParser=require('cookie-parser');
 const app=express();
 const expressLayouts=require('express-ejs-layouts');
@@ -18,11 +19,12 @@ const customMid=require('./config/middleware');
 const http=require('http');
 const chatServer=http.createServer(app);
 const chatSockets=require('./config/chat_socket').chatSockets(chatServer);
+const path=require('path');
 chatServer.listen(5000);
 console.log('chatServer is listening on port 5000');
 app.use(sassMiddleware({
-    src:'./assets/scss',
-    dest:'./assets/styles',
+    src:path.join(__dirname,env.asset_path,'/scss'),
+    dest:path.join(__dirname,env.asset_path,'/styles'),
     debug:true,
     outputStyle:'expanded',
     prefix:'/styles'
@@ -32,7 +34,7 @@ app.use(express.urlencoded());
 
 app.use(cookieParser());
 
-app.use(express.static('./assets'));
+app.use(express.static(env.asset_path));
 app.use('/uploads',express.static(__dirname+"/uploads"));
 app.use(expressLayouts);
 app.set('layout extractStyles', true);
@@ -44,7 +46,7 @@ app.set('views','./views');
 //mongo store is used to store session cookies in the db
 app.use(session({
     name:'codeial',
-    secret:'somethingrandom',
+    secret:env.session_cookie_key,
     saveUninitialized:false,
     resave:false,
     cookie:{
