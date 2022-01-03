@@ -4,6 +4,7 @@ const crypto=require('crypto');
 const User=require('../models/users');
 const env=require('../config/environment');
 
+
 passport.use(new googleStrategy({
     clientID:env.google_clientID,
     clientSecret:env.google_clientSecret,
