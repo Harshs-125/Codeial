@@ -54,7 +54,7 @@ const production={
     google_callbackURL:"http://localhost:8000/users/auth/google/callback",
     jwt_secret:process.env.JWT_SECRET,
     morgan:{
-        mode:'dev',
+        mode:'combined',
         options:{stream:accessLogStream}
     }
 
