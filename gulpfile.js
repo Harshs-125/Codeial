@@ -9,16 +9,16 @@ const del=require('del');
 
 gulp.task('css',function(done){
     console.log("minifying css");
-    gulp.src('./assets/scss/**/*.scss')
+    gulp.src('./assets/**/*.css')
      .pipe(sass())
      .pipe(cssnano())
      .pipe(rev())
-     .pipe(gulp.dest('./public/assets/css'))
+     .pipe(gulp.dest('./public/assets'))
      .pipe(rev.manifest({
          cwd:'public',
          merge:true
      }))
-     .pipe(gulp.dest('./public/assets/css'));
+     .pipe(gulp.dest('./public/assets'));
      done();
 });
 
@@ -27,12 +27,12 @@ gulp.task('js',function(done){
     gulp.src('./assets/**/*.js')
      .pipe(uglify())
      .pipe(rev())
-     .pipe(gulp.dest('./public/assets/js'))
+     .pipe(gulp.dest('./public/assets/'))
      .pipe(rev.manifest({
          cwd:'public',
          merge:true
      }))
-     .pipe(gulp.dest('./public/assets/js'));
+     .pipe(gulp.dest('./public/assets/'));
      done();
 });
 
