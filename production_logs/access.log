@@ -92,3 +92,16 @@
 [0mPOST /like/toggle/?id=61d5f0cbd79ee5098dba82ef&type=Comment [32m200[0m 10.641 ms - 60[0m
 [0mGET /users/profile/61d5f01ed79ee5098dba82b6 [32m200[0m 12.786 ms - 2434[0m
 [0mGET /css/user_profile.css [33m404[0m 8.800 ms - 159[0m
+::1 - - [17/Jan/2022:12:23:53 +0000] "GET / HTTP/1.1" 200 4124 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:23:53 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:23:55 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:05 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:07 +0000] "GET /users/signin HTTP/1.1" 200 2158 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:09 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:16 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:17 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:34 +0000] "GET /users/signup HTTP/1.1" 200 2329 "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:36:36 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signup" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:37:47 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:37:52 +0000] "GET /users/signin HTTP/1.1" 304 - "http://localhost:8000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
+::1 - - [17/Jan/2022:12:37:54 +0000] "GET /users/auth/google HTTP/1.1" 302 0 "http://localhost:8000/users/signin" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36"
