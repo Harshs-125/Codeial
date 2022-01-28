@@ -3,7 +3,7 @@
          this.chatboxId=$(`#${chatBoxId}`);
          this.userEmail=userEmail;
 
-         this.socket=io("http://65.0.132.238:5000");
+         this.socket=io("http://65.0.132.238::5000");
          if(this.userEmail)
          {
              this.connectionHandler();
